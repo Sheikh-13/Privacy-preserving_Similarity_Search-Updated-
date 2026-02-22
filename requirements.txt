@@ -1,0 +1,6 @@
+streamlit
+numpy
+pandas
+scikit-learn
+plotly
+phe==1.5.0
