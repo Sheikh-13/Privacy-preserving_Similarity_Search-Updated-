@@ -88,14 +88,14 @@ The encrypted dataset generated in **Raw Mode** can be reused in **Encrypted Mod
 ---
 
 ## 📂 Project Structure
-
+```
 Privacy-Preserving_Similarity_Search-Updated/
 │
 ├── privacy_similarity_app.py
 ├── privacy_search.log  (auto-generated)
 ├── README.md
 
-
+```
 ---
 
 ## ⚙️ Installation
