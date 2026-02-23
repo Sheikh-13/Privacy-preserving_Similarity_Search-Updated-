@@ -24,7 +24,7 @@ DATA_SHEET_NAME = "data"
 # Logging
 # -----------------------
 class PrivacyLogger:
-    def __init__(self, log_file='privacy_search.log'):
+    def __init__(self, log_file='/tmp/privacy_search.log'):
         logging.basicConfig(
             filename=log_file,
             level=logging.INFO,
@@ -260,7 +260,8 @@ def main():
             if st.sidebar.checkbox("Visualize Dataset Embedding"):
                 plot_type = st.sidebar.selectbox("Choose Visualization Type:", ["Scatter Plot", "Histogram"])
                 try:
-                    pca = PCA(n_components=2)
+                    n_comp = min(2, vp_tree.data.shape[1], vp_tree.data.shape[0])
+                    pca = PCA(n_components=n_comp)
                     reduced_data = pca.fit_transform(vp_tree.data)
 
                     if plot_type == "Scatter Plot":
@@ -314,14 +315,7 @@ def main():
                         else:
                             results, dists = vp_tree.search(qvec, k)
                             st.write(f"Top {k} Similar Records (plaintext numeric):")
-                            header = [
-                                "Patient ID",
-                                "Age",
-                                "Weight",
-                                "Blood Pressure",
-                                "Cholesterol",
-                                "Disease Risk Score"
-                            ]
+                            header = numeric_cols
                             df_results = pd.DataFrame(results, columns=header)
                             df_results["distance"] = dists
                             st.dataframe(df_results)
@@ -356,7 +350,9 @@ def main():
                     enc_cols.append(col)
                 else:
                     text_cols.append(col)
-
+                    
+            decrypted_output = io.BytesIO()
+            
             if len(enc_cols) == 0:
                 st.warning("No encrypted numeric columns detected in uploaded file.")
                 numeric_matrix = np.zeros((len(data_df), 0), dtype=float)
@@ -404,7 +400,8 @@ def main():
             if st.sidebar.checkbox("Visualize Dataset Embedding"):
                 plot_type = st.sidebar.selectbox("Choose Visualization Type:", ["Scatter Plot", "Histogram"])
                 try:
-                    pca = PCA(n_components=2)
+                    n_comp = min(2, vp_tree.data.shape[1], vp_tree.data.shape[0])
+                    pca = PCA(n_components=n_comp)
                     reduced_data = pca.fit_transform(vp_tree.data)
 
                     if plot_type == "Scatter Plot":
@@ -458,14 +455,7 @@ def main():
                         else:
                             results, dists = vp_tree.search(qvec, k)
                             st.write(f"Top {k} Similar Records (plaintext numeric):")
-                            header = [
-                                "Patient ID",
-                                "Age",
-                                "Weight",
-                                "Blood Pressure",
-                                "Cholesterol",
-                                "Disease Risk Score"
-                            ]
+                            header = numeric_cols
                             df_results = pd.DataFrame(results, columns=header)
                             df_results["distance"] = dists
                             st.dataframe(df_results)
@@ -478,3 +468,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
