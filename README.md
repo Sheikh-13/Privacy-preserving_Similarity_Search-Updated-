@@ -121,7 +121,54 @@ streamlit run app4.py
 Open the URL shown in the terminal (usually `http://localhost:8501`).
 
 ---
+## 📸 Snapshots
 
+<div align="center">
+
+###  **Home/Initial Interface**
+*Dataset Upload Page*
+
+![Home Interface](snapshots/1.Home_Interface.png)
+
+###  **Dataset Preview Page in Raw Dataset Mode**
+*Preview Raw Dataset before Encryption*
+
+![Data Preview](snapshots/2.Data_upload_Raw.png)
+
+###  **Dataset Preview Page in Encrypted Dataset Mode**
+*Preview Encrypted Dataset before Decryption*
+
+![Data Preview](snapshots/3.Data_upload_Encrypt.png)
+
+###  **Encryption Visualization page in Raw Dataset Mode**
+*Visaualize Encrypted Dataset in a Numeric Column along with message "VP-Tree Successfully built"*
+
+![Encryption Page](snapshots/4.Encrypted_visual.png)
+
+###  **Decryption Visualization page in Encrypted Dataset Mode**
+*Visaualize Decrypted Dataset in a Numeric Column along with message "VP-Tree Successfully built"*
+
+![Decryption Page](snapshots/5.Decrypted_visual.png)
+
+###  **Dataset Embedding Visualization**
+*A 2D PCA-reduced scatter plot where each point corresponds to a dataset record*
+
+![Scatter plot](snapshots/6.Scatter_plot.png)
+
+*The Histogram shows thefrequency distribution of reduced dataset values*
+
+![Histogram](snapshots/7.Histogram.png)
+
+###  **Query Input and Similarity Search Results**
+*Query Entry and Selection of Number of similar results(k)*
+
+![Query Input](snapshots/8.Query_Input_and_Result.png)
+
+![K-Means and Results](snapshots/9.K-Means.png)
+---
+</div>
+
+---
 ## 📊 Applications
 
 - 🏥 Healthcare record comparison
