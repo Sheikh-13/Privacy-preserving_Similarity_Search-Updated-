@@ -1,6 +1,8 @@
 streamlit
 numpy
 pandas
+phe
+scipy
 scikit-learn
 plotly
-phe==1.5.0
+openpyxl
