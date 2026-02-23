@@ -253,7 +253,7 @@ def main():
             # Build VP-tree on the decrypted_after_encrypt (not the original plaintext)
             if decrypted_after_encrypt.shape[1] > 0:
                 vp_tree = OptimizedVPTree(decrypted_after_encrypt, distance_metric='euclidean')
-                st.success("VP-tree built from decrypted values.") # VP-tree on decrypted values after encryption roundtrip
+                st.success("VP-tree built successfully from decrypted values.") # VP-tree on decrypted values after encryption roundtrip
             else:
                 vp_tree = None
                 st.info("No numeric features available for similarity search after roundtrip.")
@@ -397,7 +397,7 @@ def main():
                 
             if numeric_matrix.shape[1] > 0:
                 vp_tree = OptimizedVPTree(numeric_matrix, distance_metric='euclidean')
-                st.success("VP-tree built from decrypted numeric data.")
+                st.success("VP-tree built successfully from decrypted numeric data.")
             else:
                 vp_tree = None
                 st.info("No numeric features available for similarity search.")
@@ -478,4 +478,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
